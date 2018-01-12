@@ -1,3 +1,5 @@
 = notebook
 
 Some random tech notes for my personal use. 
+
+== link:ansible[Ansible Snippets]

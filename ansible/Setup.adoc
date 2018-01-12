@@ -1,6 +1,6 @@
-= Setup ansible
+== Setup ansible
 
-== ansible setup on venv environment in python 
+=== ansible setup on venv environment in python 
 
 precondition: 
 

@@ -1,3 +1,28 @@
 = Ansible Snipets
 
-include::Setup.adoc[]
+:toc:
+
+== Setup ansible
+
+=== ansible setup on venv environment in python 
+
+precondition: 
+
+* allready installed python3
+
+*preperation of environment and activation*
+
+    python3 -m venv ~/tools/ansible
+    source ~/tools/ansible/bin/activate
+
+*installation of ansible*
+
+    pip install ansible
+
+*smoke test for installation*
+
+    ansible localhost -m ping
+
+*deactivation of venv*
+
+    deactivate

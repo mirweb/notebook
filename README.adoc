@@ -2,4 +2,5 @@
 
 Some random tech notes for my personal use. 
 
-== link:ansible[Ansible Snippets]
+== link:ansible/[Ansible Snippets]
+== link:python/[Python Snippets]

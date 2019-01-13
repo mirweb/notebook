@@ -1,0 +1,21 @@
+= Jupyter Labs Tipps
+
+== using matplotlib in jupyter lab
+
+Installing https://github.com/matplotlib/jupyter-matplotlib[jupyter-matplotlib] for jupyter lab
+
+[source,bash]
+----
+conda install -c conda-forge ipympl
+conda install nodejs
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+jupyter labextension install jupyter-matplotlib
+----
+
+== clean und rebuild jupyter lab extensions
+
+[source,bash]
+----
+[0] jupyter lab clean
+[0] jupyter lab build
+----

@@ -8,7 +8,7 @@ Good sides for matplotlib
 
 == Mini Cookbooks and Examples
 
-* link:jupyter-example/group_by_month.ipynb[Grouping by month, aggregating multiple columns and ploting]
+* https://github.com/mirweb/notebook/blob/master/python/jupyter-examples/group_by_month.ipynb[Grouping by month, aggregating multiple columns and ploting]
 
 == Setup Tipps
 

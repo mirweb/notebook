@@ -1,5 +1,15 @@
 = Python tips
 
+== Working with Anaconda
+
+List all local environments
+
+    conda env list
+
+Activate environment
+
+    source activate {envname}
+
 == Working with virtual environment
 
     python3 -m venv ~/tools/scikit

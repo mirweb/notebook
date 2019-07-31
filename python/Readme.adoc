@@ -2,6 +2,8 @@
 
 == Working with Anaconda
 
+=== anaconda environments
+
 List all local environments
 
     conda env list
@@ -9,6 +11,12 @@ List all local environments
 Activate environment
 
     source activate {envname}
+
+=== anaconda maintaining
+
+Update all packages in the current active environment
+
+    conda update --all
 
 == Working with virtual environment
 

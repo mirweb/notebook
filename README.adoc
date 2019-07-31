@@ -1,6 +1,8 @@
-= notebook
+= Notebook
+:toc: left
 
 Some random tech notes for my personal use. 
 
-== link:ansible/[Ansible Snippets]
-== link:python/[Python Snippets]
+include::ansible/Readme.adoc[leveloffset=1]
+
+include::python/Readme.adoc[leveloffset=1]

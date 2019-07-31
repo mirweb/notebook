@@ -1,0 +1,26 @@
+= PlantUML AsciiDoc Simple Sample
+
+
+.simple class diagramm
+[plantuml, diagram-classes, png]     
+----
+class BlockProcessor
+class DiagramBlock
+class DitaaBlock
+class PlantUmlBlock
+
+BlockProcessor <|-- DiagramBlock
+DiagramBlock <|-- DitaaBlock
+DiagramBlock <|-- PlantUmlBlock
+----
+
+.simple state diagramm
+----
+[*] --> State1
+State1 --> [*]
+State1 : this is a string
+State1 : this is another string
+
+State1 -> State2
+State2 --> [*]
+----

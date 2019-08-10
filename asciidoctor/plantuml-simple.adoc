@@ -15,6 +15,7 @@ DiagramBlock <|-- PlantUmlBlock
 ----
 
 .simple state diagramm
+[plantuml,svg]
 ----
 [*] --> State1
 State1 --> [*]

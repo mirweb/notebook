@@ -7,10 +7,6 @@
 
 === Helpfull extensions
 
-==== PlantUml
-
-Simple 
-
 == Tools & editing
 
 === MS Visual Code
@@ -24,6 +20,11 @@ Helpfull commands
 -> Select AsciiDoc: Export document as PDF
 
 
+=== Eclipse
+
+Best handled with http://marketplace.eclipse.org/content/asciidoctor-editor[Asciidoctor Editor] with preview and syntax higlighting featurs. 
+
+
 == PlantUml
 
 http://plantuml.com[PlantUML] is simple extension, to describe simple technical diagramms in ascii that can be generated to diagram pictures. 
@@ -32,17 +33,23 @@ PlantUml can be used as standalone files.
 
 .Example standalon .puml file
 [source]
-....
+----
 include::plantuml-simple.puml[]
-....
+----
 
-.Output of plantuml-simple.puml
-image::plantuml-simple.png[]
+.include a standalone .puml file with following comand
+[source]
+....
+plantuml::asciidoctor/plantuml-simple.puml[format=svg, title="PlantUML example"]
+....
+plantuml::asciidoctor/plantuml-simple.puml[format=svg, title="PlantUML example"]
+
 
 Or inside a asciidoc document. 
 
-.Example inside .adoc file
+.Example .adoc file with inside 
 [source]
 ....
 include::plantuml-simple.adoc[]
 ....
+

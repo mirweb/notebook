@@ -3,6 +3,8 @@
 
 Some random tech notes for my personal use. 
 
+include::asciidoctor/Readme.adoc[leveloffset=1]
+
 include::ansible/Readme.adoc[leveloffset=1]
 
 include::python/Readme.adoc[leveloffset=1]

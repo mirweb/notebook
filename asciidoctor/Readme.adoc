@@ -25,6 +25,14 @@ Helpfull commands
 Best handled with http://marketplace.eclipse.org/content/asciidoctor-editor[Asciidoctor Editor] with preview and syntax higlighting featurs. 
 
 
+=== gradle
+
+.Simple gradle build file
+[source]
+----
+include::build.gradle[]
+----
+
 == PlantUml
 
 http://plantuml.com[PlantUML] is simple extension, to describe simple technical diagramms in ascii that can be generated to diagram pictures. 

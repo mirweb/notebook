@@ -1,3 +1,5 @@
 **.html
 python/jupyter-examples/.ipynb_checkpoints/
 /.gradle/
+.DS_Store
+build/

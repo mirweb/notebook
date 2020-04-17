@@ -45,12 +45,8 @@ PlantUml can be used as standalone files.
 include::plantuml-simple.puml[]
 ----
 
-.include a standalone .puml file with following comand
-[source]
-....
-plantuml::asciidoctor/plantuml-simple.puml[format=svg, title="PlantUML example"]
-....
-plantuml::asciidoctor/plantuml-simple.puml[format=svg, title="PlantUML example"]
+.Output 
+image::plantuml-simple.svg[]
 
 
 Or inside a asciidoc document. 

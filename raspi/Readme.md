@@ -17,3 +17,15 @@ diskutil unmountDisk /dev/disk2
 # use previously downloaded image
 sudo sh -c 'gunzip -c ~/Downloads/ubuntu-20.04-preinstalled-server-arm64+raspi.img.xz | sudo dd of=/dev/disk2 bs=32m'
 ```
+
+- put sd card into raspi, connect to wireless ethernet and power on
+
+## First Startup
+
+- find ip from raspi in your router or use ubuntu as hostname to ssh for first connection 
+- basic setup
+
+```bash
+# rename host name
+sudo hostnamectl set-hostname raspi
+```

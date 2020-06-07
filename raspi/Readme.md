@@ -29,3 +29,13 @@ sudo sh -c 'gunzip -c ~/Downloads/ubuntu-20.04-preinstalled-server-arm64+raspi.i
 # rename host name
 sudo hostnamectl set-hostname raspi
 ```
+
+## Setup via basic ansible playbook
+
+- create simple [inentory](inventroy)
+- put setup tasks into [raspi.yml]
+- run setup via
+
+```bash
+ansible-playbook -i inventory raspi.yml
+````

@@ -39,3 +39,7 @@ sudo hostnamectl set-hostname raspi
 ```bash
 ansible-playbook -i inventory raspi.yml
 ````
+
+### Infos for using wireguard
+
+- [Private IPv6 address range](https://simpledns.plus/private-ipv6)

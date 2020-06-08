@@ -1,0 +1,8 @@
+[Interface]
+PrivateKey = {{ wg_priv_key }}
+Address = 192.168.206.1/24
+Address = fd1a:3dd3:851e:3645::/64
+SaveConfig = true
+PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o ens18 -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o ens18 -j MASQUERADE; iptables -A FORWARD -o %i -j ACCEPT
+PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o ens18 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o ens18 -j MASQUERADE; iptables -D FORWARD -o %i -j ACCEPT
+ListenPort = 51820

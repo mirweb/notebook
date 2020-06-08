@@ -8,15 +8,18 @@
       hostname:
         name: raspi
       become: yes
+
+    - name: packages to install
+      package:
+        name:
+          - wireguard
+          - docker.io
+          - docker-compose
+        state: latest
+      become: yes
  
     - name: setup wireguard
       block:
-        - name: wireguard installed
-          package:
-            name: wireguard
-            state: present
-          become: yes   
-
         - name: ipv6 forwarding enabled
           sysctl:
             name: net.ipv4.ip_forward
@@ -33,5 +36,30 @@
             sysctl_set: yes
             state: present
             reload: yes
+          become: yes
+
+        - name: generate wireguard server keys
+          shell: 
+            cmd: umask 077 && wg genkey | tee privatekey | wg pubkey | tee pubkey
+            chdir: /etc/wireguard
+            creates: /etc/wireguard/privatekey
+          become: yes
+        
+        - command: cat /etc/wireguard/privatekey
+          register: cat_privatekey
+          changed_when: cat_privatekey.rc != 0
+          become: yes
+        
+        - debug: var=ansible_facts.default_ipv4
+
+        - debug: var=cat_privatekey
+
+        - set_fact:
+            wg_priv_key: "{{ cat_privatekey.stdout }}"
+
+        - name: install wg0.conf 
+          template:
+            src: wg0.conf.j2
+            dest: /etc/wireguard/wg0.conf
           become: yes
 

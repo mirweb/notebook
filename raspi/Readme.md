@@ -38,7 +38,7 @@ sudo hostnamectl set-hostname raspi
 
 ## Setup via basic ansible playbook
 
-- create simple [inentory](inventroy)
+- create simple [inentory](inventory)
 - put setup tasks into [raspi.yml](raspi.yml)
 - run setup via
 

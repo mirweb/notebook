@@ -33,13 +33,39 @@ sudo hostnamectl set-hostname raspi
 ## Setup via basic ansible playbook
 
 - create simple [inentory](inventroy)
-- put setup tasks into [raspi.yml]
+- put setup tasks into [raspi.yml](raspi.yml)
 - run setup via
 
 ```bash
-ansible-playbook -i inventory raspi.yml
+ansible-playbook -i raspi, raspi.yml
 ````
 
-### Infos for using wireguard
+### Infos & Tutorials for using wireguard
 
 - [Private IPv6 address range](https://simpledns.plus/private-ipv6)
+- [WireGuard VPN Server einrichten (Ubuntu, Raspberry Pi, Linux, Android)](https://www.bitblokes.de/wireguard-vpn-server-einrichten-ubuntu-raspberry-pi-linux-android/)
+- [Wireguard VPN und Ubuntu 20.04](https://www.sebastian-fritz.net/2019/01/28/wireguard-vpn-und-ubuntu-18-04/)
+
+### setup wiregurad peers on raspi
+
+- after playbook run basic wireguard setup is activ
+- listening on default udp port 51820
+- to add peer config, eg. mobile device, make following steps
+
+```bash
+# create dir for every peer
+ubuntu@raspi:~/wg_users$ mkdir peer && cd peer
+# generate kees for peer
+ubuntu@raspi:~/wg_users/peer$ umask 077
+ubuntu@raspi:~/wg_users/peer$ wg genkey | tee privatekey | wg pubkey | tee pubkey
+ubuntu@raspi:~/wg_users/peer$ wg genpsk > preshared_peer
+# copy sample client.conf and edit this (fill in keys, adjust server, eg dns)
+ubuntu@raspi:~/wg_users/peer$ cp ../client.conf.sample client.conf
+ubuntu@raspi:~/wg_users/peer$ vi client.conf
+# display config as qrcode to scan from mobile
+ubuntu@raspi:~/wg_users/peer$ qrencode -t ansiutf8  < client.conf
+# add to wg config
+ubuntu@raspi:~/wg_users/peer$ cat pubkey 
+ubuntu@raspi:~/wg_users/peer$ sudo wg set wg0 peer `cat pubkey` preshared-key ./preshared_peer allowed-ips 0.0.0.0/0,::/0
+ubuntu@raspi:~/wg_users/peer$ sudo wg-quick save wg0
+```

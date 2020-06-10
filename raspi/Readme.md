@@ -1,5 +1,11 @@
 # Raspi as homeserver
 
+## About
+
+- simple raspi setup with some common services and almost automatic setup via ansible
+- currently serving 
+  - [wireguard](#wireguard) vpn endpoint into home network
+
 ## Hardware infos
 
 - raspi 4b with 4GB ram and 64GB Class10 MicroSD
@@ -38,7 +44,9 @@ sudo hostnamectl set-hostname raspi
 
 ```bash
 ansible-playbook -i raspi, raspi.yml
-````
+```
+
+## Wireguard
 
 ### Infos & Tutorials for using wireguard
 

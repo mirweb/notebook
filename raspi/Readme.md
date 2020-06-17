@@ -46,6 +46,10 @@ sudo hostnamectl set-hostname raspi
 ansible-playbook -i raspi, raspi.yml
 ```
 
+- currently installed roles
+  - [wireguard](#Wireguard)
+  - [traefik](#Traefik)
+
 ## Wireguard
 
 ### Infos & Tutorials for using wireguard
@@ -74,6 +78,10 @@ ubuntu@raspi:~/wg_users/peer$ vi client.conf
 ubuntu@raspi:~/wg_users/peer$ qrencode -t ansiutf8  < client.conf
 # add to wg config
 ubuntu@raspi:~/wg_users/peer$ cat pubkey 
-ubuntu@raspi:~/wg_users/peer$ sudo wg set wg0 peer `cat pubkey` preshared-key ./preshared_peer allowed-ips 0.0.0.0/0,::/0
+ubuntu@raspi:~/wg_users/peer$ sudo wg set wg0 peer `cat pubkey` preshared-key ./preshared_peer allowed-ips 192.168.222.2/32,fd1a:3dd3:851e:3645::2/64
 ubuntu@raspi:~/wg_users/peer$ sudo wg-quick save wg0
 ```
+
+## Traefik
+
+- [traefik](https://docs.traefik.io) router as docker-compose setup installed

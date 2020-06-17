@@ -1,0 +1,8 @@
+[Interface]
+PrivateKey = {{ wg_priv_key }}
+Address = {{ wg_ipv4_network }}
+Address = {{ wg_ipv6_network }}
+SaveConfig = true
+PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o {{ net_device }} -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o {{ net_device }} -j MASQUERADE
+PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o {{ net_device }} -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o {{ net_device }} -j MASQUERADE
+ListenPort = 51820

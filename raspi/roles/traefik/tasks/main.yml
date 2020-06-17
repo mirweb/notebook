@@ -1,0 +1,13 @@
+---
+- name: sync traefik folder
+  synchronize: 
+    src: traefik/
+    dest: ~/traefik/
+
+- name: create docker raspi network
+  docker_network:
+    name: raspi
+
+- name: start traefik
+  docker_compose:
+    project_src: "~/traefik/"

@@ -1,0 +1,70 @@
+---
+- name: ipv6 forwarding enabled
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: yes
+    state: present
+    reload: yes
+  become: yes
+
+- name: ipv6 forwarding enabled
+  sysctl:
+    name: net.ipv6.conf.all.forwarding
+    value: '1'
+    sysctl_set: yes
+    state: present
+    reload: yes
+  become: yes
+
+- set_fact:
+    peers:
+      peer1 
+
+- name: generate wireguard server keys
+  shell: 
+    cmd: umask 077 && wg genkey | tee privatekey | wg pubkey | tee pubkey
+    chdir: /etc/wireguard
+    creates: /etc/wireguard/privatekey
+  become: yes
+
+- command: cat /etc/wireguard/privatekey
+  register: cat_privatekey
+  changed_when: cat_privatekey.rc != 0
+  become: yes
+
+- command: cat /etc/wireguard/pubkey
+  register: cat_pubkey
+  changed_when: cat_pubkey.rc != 0
+  become: yes
+
+- set_fact:
+    wg_priv_key: "{{ cat_privatekey.stdout }}"
+    wg_pub_key: "{{ cat_pubkey.stdout }}"
+    net_device: "{{ ansible_facts.default_ipv4.interface }}"
+    wg_ipv4_network: "192.168.222.1/24"
+    wg_ipv6_network: "fd1a:3dd3:851e:3645::1/64"
+
+- name: install wg0.conf 
+  template:
+    src: wg0.conf.j2
+    dest: /etc/wireguard/wg0.conf
+    force: no
+  become: yes
+
+- file: 
+    path: ~/wg_users/ 
+    state: directory
+    mode: 0700
+
+- name: default config for wg user configuration
+  template:
+    src: client.conf.j2
+    dest: ~/wg_users/client.conf.sample
+
+- name: Start service wireguard, ensure that started on boot
+  systemd:
+    name: wg-quick@wg0.service
+    state: started
+    enabled: yes
+  become: yes

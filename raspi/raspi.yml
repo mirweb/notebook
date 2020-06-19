@@ -17,9 +17,10 @@
     - name: packages to install
       package:
         name:
-          - wireguard
+          - zsh
+          - tmux
+          - mosh
           - docker.io
           - docker-compose
-          - qrencode
         state: latest
       become: yes

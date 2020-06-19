@@ -1,4 +1,12 @@
 ---
+- name: packages to install
+  package:
+    name:
+      - wireguard
+      - qrencode
+    state: latest
+  become: yes
+
 - name: ipv6 forwarding enabled
   sysctl:
     name: net.ipv4.ip_forward

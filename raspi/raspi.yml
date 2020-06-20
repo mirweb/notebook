@@ -6,6 +6,8 @@
       tags: [ wiregurad ]
     - role: traefik
       tags: [ traefik ] 
+    - role: pi-hole
+      tags: [ pi-hole ] 
 
   pre_tasks:
 

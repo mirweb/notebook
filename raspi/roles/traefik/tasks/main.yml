@@ -4,6 +4,11 @@
     src: traefik/
     dest: ~/traefik/
 
+- name: deploy docker-compose file
+  template:
+    src: docker-compose.yml.j2
+    dest: ~/traefik/docker-compose.yml
+
 - name: create docker raspi network
   docker_network:
     name: raspi
@@ -11,3 +16,4 @@
 - name: start traefik
   docker_compose:
     project_src: "~/traefik/"
+    remove_orphans: yes

@@ -6,9 +6,9 @@ services:
     restart: unless-stopped
     command: --api.insecure=true --providers.docker
     ports:
-      - "80:80"
-      - "443:443"
-      - "8080:8080"
+{% for port in ports %}
+      - "{{ port }}"
+{% endfor %}
     networks:
       - web
     volumes:

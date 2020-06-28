@@ -4,13 +4,21 @@ services:
   traefik:
     image: traefik:latest
     restart: unless-stopped
-    command: --api.insecure=true --providers.docker
+    command: 
+      - "--api.insecure=true"
+      - "--providers.docker"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.dns.address=:53"
+      - "--entrypoints.udpdns.address=:53/udp"
+      - "--entrypoints.web.address=:80"
     ports:
-{% for port in ports %}
-      - "{{ port }}"
-{% endfor %}
+        - "53:53/udp"
+        - "53:53/tcp"
+        - "80:80"
+        - "443:443"
+        - "8080:8080"
     networks:
-      - web
+      - raspi
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
@@ -20,6 +28,6 @@ services:
       #- ./run/logs:/traefik/logs
 
 networks: 
-  web: 
+  raspi: 
     external: 
       name: raspi

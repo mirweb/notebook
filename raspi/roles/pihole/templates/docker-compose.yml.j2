@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  pihole:
+    image: pihole/pihole:latest
+    networks:
+      - raspi
+    restart: unless-stopped
+    privileged: true
+ #   ports:
+      #- "54:53/tcp"
+      #- "54:53/udp"
+      #- "8180:80/tcp"
+      #- "8443:443/tcp"
+    volumes:
+      - './etc-pihole/:/etc/pihole/'
+      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+    environment:
+      TZ: 'Europe/Berlin'
+      DNS1: 192.168.178.1
+      DNS2: 1.1.1.1     
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    labels:
+      - "traefik.enable=true"
+      # web interface
+      - "traefik.http.routers.pihole.rule=Host({{ pi_hosts }})"
+      - "traefik.http.routers.pihole.entrypoints=web"
+      - "traefik.http.services.pihole.loadbalancer.server.port=80"
+      # Normal DNS coming in on 53 UDP
+      - "traefik.udp.routers.udpdns.entrypoints=udpdns"
+      - "traefik.udp.routers.udpdns.service=pihole"
+      - "traefik.udp.services.pihole.loadbalancer.server.port=53"
+
+networks: 
+  raspi: 
+    external: 
+      name: raspi

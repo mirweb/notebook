@@ -1,0 +1,27 @@
+---
+- name: disable DNSStubListener
+  lineinfile: 
+    path: /etc/systemd/resolved.conf
+    regexp: '^DNSStubListener='
+    line: DNSStubListener=no
+  become: yes
+
+- name: stop systemd-resolved
+  systemd:
+    name: systemd-resolved
+    state: stopped
+  become: yes
+
+- name: sync pihole folder
+  synchronize: 
+    src: pihole/
+    dest: ~/pihole/
+
+- name: deploy docker-compose file
+  template:
+    src: docker-compose.yml.j2
+    dest: ~/pihole/docker-compose.yml
+
+- name: start pihole
+  docker_compose:
+    project_src: ~/pihole/

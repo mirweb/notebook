@@ -38,17 +38,18 @@ sudo hostnamectl set-hostname raspi
 
 ## Setup via basic ansible playbook
 
-- create simple [inentory](inventory)
-- put setup tasks into [raspi.yml](raspi.yml)
+- create simple [hosts.yml](hosts.yml) from example under [hosts.example.yml](hosts.example.yml) with adjusting vars to your needs
+- defined setup tasks into [raspi.yml](raspi.yml)
 - run setup via
 
 ```bash
-ansible-playbook -i raspi, raspi.yml
+ansible-playbook raspi.yml
 ```
 
 - currently installed roles
   - [wireguard](#Wireguard)
   - [traefik](#Traefik)
+  - [pihole](#Pihole)
 
 ## Wireguard
 
@@ -85,3 +86,8 @@ ubuntu@raspi:~/wg_users/peer$ sudo wg-quick save wg0
 ## Traefik
 
 - [traefik](https://docs.traefik.io) router as docker-compose setup installed
+
+## Pi-Hole
+
+- [Pi-hole](https://pi-hole.net) basic setup
+- use pi_hole inventory variable, to define host how pi-hole should be reachable over traefik

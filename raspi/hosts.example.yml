@@ -1,0 +1,6 @@
+---
+all:
+  hosts:
+    raspi:
+      ansible_host: 192.168.0.2
+      pi_hosts: "`pi.example`,`pi`"

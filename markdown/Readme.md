@@ -10,6 +10,7 @@
 
 ### VS Code Plugins
 
+- [Markdown Preview Enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/)
 - [Markdown PDF](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf)
 - [MS Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack)
 

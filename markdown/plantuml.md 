@@ -1,0 +1,13 @@
+# Simple plantuml example
+
+* using [Markdown Preview Enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/) VS Code plugin to preview and export (eg. as pdf, html) document
+
+```puml {align="center"}
+@startuml
+start
+:Hello world;
+:This is on defined on
+several **lines**;
+stop
+@enduml
+```

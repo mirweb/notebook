@@ -1,0 +1,14 @@
+---
+- name: sync homebridge folder
+  synchronize: 
+    src: homebridge/
+    dest: ~/homebridge/
+
+- name: deploy docker-compose file
+  template:
+    src: docker-compose.yml.j2
+    dest: ~/homebridge/docker-compose.yml
+
+- name: start homebridge
+  docker_compose:
+    project_src: ~/homebridge/

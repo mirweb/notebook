@@ -8,6 +8,8 @@
       tags: [ traefik ] 
     - role: pihole
       tags: [ pihole ] 
+    - role: homebridge
+      tags: [ homebridge ]
 
   pre_tasks:
 

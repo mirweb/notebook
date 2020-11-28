@@ -1,0 +1,17 @@
+version: '3'
+services:
+  homebridge:
+    image: oznu/homebridge:latest
+    container_name: homebridge
+    network_mode: host
+    restart: always
+    environment:
+      - TZ=Europe/Berlin
+      - PGID=1000
+      - PUID=1000
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8180
+    volumes:
+      - homebridge_data:/homebridge
+volumes: 
+  homebridge_data:

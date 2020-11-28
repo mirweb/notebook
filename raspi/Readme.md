@@ -46,10 +46,18 @@ sudo hostnamectl set-hostname raspi
 ansible-playbook raspi.yml
 ```
 
+- only starting specific roles, eg. only installing homebridge
+
+```bash
+ansible-playbook raspi.yml --tags homebridge
+```
+
+
 - currently installed roles
   - [wireguard](#Wireguard)
   - [traefik](#Traefik)
   - [pihole](#Pihole)
+  - [homebridge](#Homebridge)
 
 ## Wireguard
 
@@ -91,3 +99,8 @@ ubuntu@raspi:~/wg_users/peer$ sudo wg-quick save wg0
 
 - [Pi-hole](https://pi-hole.net) basic setup
 - use pi_hole inventory variable, to define host how pi-hole should be reachable over traefik
+
+## Homebridge
+
+- [Homebridge](https://homebridge.io) basic setup, see [Docker Linux Setup Guide](https://github.com/homebridge/homebridge/wiki/Install-Homebridge-on-Docker)
+- go to http://raspi:8180 and use admin:admin after first start

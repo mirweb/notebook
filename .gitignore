@@ -5,3 +5,5 @@ python/jupyter-examples/.ipynb_checkpoints/
 build/
 out/
 hosts.yml
+.ipynb_checkpoints
+.vscode/

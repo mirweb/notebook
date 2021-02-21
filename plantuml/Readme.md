@@ -25,6 +25,12 @@ Bob -> Alice : Hello
 
 ```plantuml
 @startuml
+version
+@enduml
+```
+
+```plantuml
+@startuml
 stdlib
 @enduml
 ```
@@ -41,5 +47,13 @@ Container(containerAlias, "Label", "Technology", "Optional Description")
 System(systemAlias, "Label", "Optional Description")
 
 Rel(personAlias, containerAlias, "Label", "Optional Technology")
+@enduml
+```
+
+## plantuml stdlib icons
+
+```plantuml
+@startuml
+listicons
 @enduml
 ```

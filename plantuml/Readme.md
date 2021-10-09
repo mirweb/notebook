@@ -54,6 +54,6 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology")
 
 ```plantuml
 @startuml
-listicons
+listopeniconic
 @enduml
 ```

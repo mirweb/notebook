@@ -7,3 +7,5 @@ out/
 hosts.yml
 .ipynb_checkpoints
 .vscode/
+.project
+.settings/org.eclipse.buildship.core.prefs

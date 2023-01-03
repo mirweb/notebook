@@ -9,3 +9,5 @@ hosts.yml
 .vscode/
 .project
 .settings/org.eclipse.buildship.core.prefs
+.vagrant
+salt/venv

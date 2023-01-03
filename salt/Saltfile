@@ -1,0 +1,11 @@
+salt-ssh:
+  ssh_log_file: salt-ssh.log
+
+file_client: local
+file_roots:
+  base:
+    - .
+    - ./_states
+    - ./_grains
+module_dirs:
+  - .

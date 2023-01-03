@@ -1,0 +1,39 @@
+2022-11-26 20:40:03,113 [salt.roster      :104 ][ERROR   ][71048] Can't access roster for backend flat: Roster file "/etc/salt/roster" not found
+2022-11-26 20:41:55,676 [salt.roster      :104 ][ERROR   ][71381] Can't access roster for backend flat: Roster file "/etc/salt/roster" not found
+2022-11-26 20:42:47,755 [salt.roster      :104 ][ERROR   ][71613] Can't access roster for backend flat: Roster file "/etc/salt/roster" not found
+2022-11-26 20:43:49,160 [salt.roster      :104 ][ERROR   ][71782] Can't access roster for backend flat: Roster file "/Users/mirweb/workspace/notebook/salt/roster" not found
+2022-11-26 20:44:27,627 [salt.roster      :102 ][ERROR   ][71905] Unable to render roster file: Traceback (most recent call last):
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/utils/templates.py", line 216, in render_tmpl
+    output = render_str(tmplstr, context, tmplpath)
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/utils/templates.py", line 367, in render_jinja_tmpl
+    loader = salt.utils.jinja.SaltCacheLoader(
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/utils/jinja.py", line 96, in __init__
+    self.file_client()
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/utils/jinja.py", line 117, in file_client
+    cached_client = salt.fileclient.get_file_client(
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/fileclient.py", line 54, in get_file_client
+    return {"remote": RemoteClient, "local": FSClient, "pillar": PillarClient}.get(
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/fileclient.py", line 1479, in __init__
+    self.channel = salt.fileserver.FSChan(opts)
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/fileserver/__init__.py", line 869, in __init__
+    self.fs.update()
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/fileserver/__init__.py", line 484, in update
+    self.servers[fstr](**kwargs)
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/loader/lazy.py", line 149, in __call__
+    return self.loader.run(run_func, *args, **kwargs)
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/loader/lazy.py", line 1228, in run
+    return self._last_context.run(self._run_as, _func_or_method, *args, **kwargs)
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/loader/lazy.py", line 1243, in _run_as
+    return _func_or_method(*args, **kwargs)
+  File "/Users/mirweb/workspace/notebook/salt/venv/lib/python3.9/site-packages/salt/fileserver/roots.py", line 193, in update
+    os.makedirs(mtime_map_path_dir)
+  File "/usr/local/Cellar/python@3.9/3.9.15/Frameworks/Python.framework/Versions/3.9/lib/python3.9/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/usr/local/Cellar/python@3.9/3.9.15/Frameworks/Python.framework/Versions/3.9/lib/python3.9/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/usr/local/Cellar/python@3.9/3.9.15/Frameworks/Python.framework/Versions/3.9/lib/python3.9/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/usr/local/Cellar/python@3.9/3.9.15/Frameworks/Python.framework/Versions/3.9/lib/python3.9/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/var/cache'
+

@@ -1,0 +1,29 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  net_ip = "192.168.50"
+  os = "generic/ubuntu2204"
+
+  [
+    ["dev1",    "#{net_ip}.11",    "1024",    os ],
+    ["dev2",    "#{net_ip}.12",    "1024",    os ],
+  ].each do |vmname,ip,mem,os|
+    config.vm.define "#{vmname}" do |box_config|
+      box_config.vm.provider "virtualbox" do |vb|
+          vb.memory = "#{mem}"
+          vb.cpus = 1
+          vb.name = "#{vmname}"
+      end
+
+      box_config.vm.box = "#{os}"
+      box_config.vm.hostname = "#{vmname}"
+      box_config.vm.network "private_network", ip: "#{ip}"
+
+
+    end
+  end
+
+
+end
